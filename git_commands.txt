@@ -1,0 +1,57 @@
+Git commands I used for this assignment
+=======================================
+
+git init -b main
+  Creates a new empty git repo in the current folder and names the first branch main.
+
+git status
+  Shows which files are tracked, untracked, staged or modified. I used it a lot to check where I was.
+
+git add <file>
+  Stages the file so it goes into the next commit.
+
+git commit -m "message"
+  Saves the staged changes as a commit with a message describing what changed.
+
+git diff
+  Shows the exact lines changed in files that are not staged yet. Used it before the 2nd commit.
+
+git branch feature
+  Creates a new branch called feature from the current commit (does not switch to it).
+
+git branch
+  Lists all local branches, the * marks the branch I am currently on.
+
+git checkout feature
+  Switches the working folder to the feature branch.
+
+git checkout main
+  Switches back to the main branch.
+
+git merge feature --no-ff -m "message"
+  Merges feature into main. --no-ff forces a merge commit so the branch shows up in the history graph.
+
+git log --oneline --graph --all
+  Prints commit history in short form with a graph showing branches and the merge.
+
+cat .gitignore
+  (shell command) Just prints the .gitignore file to check the rules: *.log and temp/
+
+git revert --no-edit HEAD
+  Undoes the last commit by making a new commit that reverses it. I picked revert over reset
+  because the history stays intact and it is safe for a repo that gets pushed to GitHub.
+
+git log --oneline -4
+  Shows only the last 4 commits, used to see the revert commit on top.
+
+git remote add origin https://github.com/jyo-coded/git-workflow-assignment.git
+  Links my local repo to the empty GitHub repo, origin is the short name for that URL.
+
+git remote -v
+  Lists the remotes so I could check the URL was correct.
+
+git push -u origin main
+  Uploads main to GitHub. -u sets origin/main as upstream so next time just "git push" works.
+
+git push origin feature
+  Pushes the feature branch too so the branch is visible on GitHub.
